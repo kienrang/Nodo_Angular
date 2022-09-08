@@ -1,0 +1,51 @@
+<h1>ng-For</h1>
+
+<!-- 
+
+    simplicit: item Implict context variable
+    index
+    count
+    first
+    last
+    even
+    odd
+
+ -->
+
+<ul>
+    <ng-container *ngIf="users.length > 0;else noUser">
+        <li
+            *ngFor="let user of users; index as idx; count as total; first as isFirst,last as isLast, even as isEven, odd as isOdd ">
+            <p>Name: {{user.name}}</p>
+            <p>Email: {{user.email}}</p>
+            <p>Address: {{user.address.stress}}, {{user.address.district}}, {{user.address.city}} </p>
+            <p>User at index {{idx + 1}} of {{total}}</p>
+            <p *ngIf="isEven">I am even number</p>
+            <p *ngIf="isOdd">I am old number</p>
+            <p *ngIf="isLast">I am last</p>
+            <p *ngIf="isFirst">I am first</p>
+            <hr>
+        </li>
+    </ng-container>
+    <ng-template #noUser>
+        <div>
+            <h1>Không có user</h1>
+        </div>
+    </ng-template>
+
+    <!-- <ng-template ngFor [ngForOf]="users" let-user let-idx="index" let-total="count" let-isFirst="First"
+        let-isLast="last" , let-isEven="even" let-isOdd="odd">
+        <li>
+            <p>Name: {{user.name}}</p>
+            <p>Email: {{user.email}}</p>
+            <p>Address: {{user.address.stress}}, {{user.address.district}}, {{user.address.city}} </p>
+            <p>User at index {{idx + 1}} of {{total}}</p>
+            <p *ngIf="isEven">I am even number</p>
+            <p *ngIf="isOdd">I am old number</p>
+            <p *ngIf="isLast">I am last</p>
+            <p *ngIf="isFirst">I am first</p>
+            <hr>
+        </li>
+    </ng-template> -->
+
+</ul>

@@ -1,0 +1,18 @@
+<div class="box" [class.red-border]="isDanger" [class.yellow-background]="isWarning">
+    <h1>Class Binding</h1>
+</div>
+
+<button (click)="isDanger = !isDanger">Border</button>
+<button (click)="isWarning = !isWarning">Background</button>
+
+
+<!-- 
+    ==>  [style.tenStyle.unit]  ----------- style.fontSize.px]="20"
+    ==>  [style.ten-style.unit] ----------- [style.font-family]="'sans-serif'"
+    ==> [style] = "objetc" -------------- [style]="{backgroundColor: 'black'}"
+    ==> [style.css-variable] -------------[style.--text-color]="isWarning ? 'red': 'white'"
+
+ -->
+<div [style.--text-color]="isWarning ? 'red': 'white'" [style]="{backgroundColor: 'black',color: 'var(--text-color)'}">
+    Learn Style Binding
+</div>
